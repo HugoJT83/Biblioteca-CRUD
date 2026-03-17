@@ -1,59 +1,49 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Proyecto de biblioteca
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación web de gestión de libros 
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 1. Acerca del proyecto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+La aplicación se ha desarrollado con **Laravel 12** a través de **plantillas Blade**, utilizando **PHP 8.5** y **Composer**; la aplicación se gestiona con **MySQL** y utiliza las siguientes dependencias para su funcionamiento:  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* **Laravel Breeze** (Manejo de sesiones y usuarios)
+* **TailwindCSS** (desarrollo en el front-end para estilos)
+* **DaisyUI** (plugin de TailwindCSS para uso de elementos preconstruidos)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 2. Documentación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+En la carpeta DOCS se encuentran los documentos correspondientes al SCHEMA de la BD, así como las pruebas de funcionamiento de la app en forma de capturas de pantalla.  
 
-## Laravel Sponsors
+* [SCHEMA](./docs/db_schema.md)
+* [Pruebas de funcionamiento](./docs/pruebas_funcionamiento.md)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 3. Ejecución
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Importante: Para ejecutar el proyecto se requiere tener un servidor MySQL activo en el puerto **3306**.
 
-## Contributing
+Las instrucciones para ejecutar el proyecto son:
+* Ejecutar **composer update** para descargar las dependencias
+* Ejecutar **npm run build**
+* Ejecutar las migraciones a través de **php artisan migrate**; si este comando no se puede ejecutar, hay que comprobar que la aplicación ha sido levantada.
+* Ejecutar **php artisan serve** y **npm run dev** para levantar la aplicación
+* Se accede a la app a través de "http://localhost:8000/"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Funcionalidades CRUD
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+La aplicación cuenta con las siguientes características:
 
-## Security Vulnerabilities
+1. Crear libros
+2. Listar libros (tanto búsquedas concretas como generales con paginación)
+3. Actualizar libros existentes
+4. Eliminar libros
+5. Filtros de búsqueda (autor, género)
+6. Exportar listado a PDF
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
