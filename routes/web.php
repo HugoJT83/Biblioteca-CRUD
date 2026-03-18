@@ -22,4 +22,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::fallback(function(){
+
+    $url = request()->url();
+    $path = request()->path();
+    return response()->view(
+        "Error",
+        [
+        'url' => $url,
+        'path' => $path
+        ],
+        404);
+});
+
 require __DIR__.'/auth.php';
