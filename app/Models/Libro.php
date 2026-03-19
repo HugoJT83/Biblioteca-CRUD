@@ -14,7 +14,8 @@ class Libro extends Model
         'autor',
         'anio',
         'genero',
-        'resumen'
+        'resumen',
+        'imagen'
     ];
 
     public static function fieldLabels(){
@@ -25,6 +26,7 @@ class Libro extends Model
             'anio'=>"Año",
             'genero'=>"Género",
             'resumen'=>"Resumen",
+            'imagen' => "Imagen",
             'created_at'=>"Fecha de Creación",
             "updated_at"=>"Fecha de modificación"
         ];

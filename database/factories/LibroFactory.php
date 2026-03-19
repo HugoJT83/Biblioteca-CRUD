@@ -30,12 +30,16 @@ class LibroFactory extends Factory
         $synopsis = config("synopsis");
         $rand_s = array_rand($synopsis);
 
+        $book_covers = config("book_covers");
+        $rand_bc = array_rand($book_covers);
+
         return [
             'titulo'=> $book_names[$rand_bn],
             'autor' => $author_names[$rand_an],
             'anio' => $this->faker->year(),
             'genero' => $genres[$rand_g],
-            'resumen' => $synopsis[$rand_s]
+            'resumen' => $synopsis[$rand_s],
+            'imagen' => $book_covers[$rand_bc]
         ];
     }
 }

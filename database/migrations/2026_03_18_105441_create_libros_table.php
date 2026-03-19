@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('anio');
             $table->string('genero');
             $table->text('resumen');
+            $table->string('imagen');
             $table->timestamps();
         });
     }
