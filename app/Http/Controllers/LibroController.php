@@ -15,7 +15,9 @@ class LibroController extends Controller
     {
         //
         $libros = Libro::all();
-        $fields = $libros->first()?->getFillable()??[];
+        $campos = $libros->first()?->getFillable()??[];
+        
+        return view('libros.index',compact('libros','campos'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <footer class="footer footer-horizontal footer-center bg-gray-800 text-primary-content p-10">
   <aside>
-    <a href="{{route("index")}}">
+    <a href="{{route("main")}}">
     <img 
         src="{{ asset('imgs/book_icon_pixel_alt.png') }}" 
         alt="Logo Biblioteca" 
