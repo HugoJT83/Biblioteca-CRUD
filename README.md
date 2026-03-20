@@ -2,9 +2,10 @@
 
 Aplicación web de gestión de libros. 
 <br>
-<div style="width: full; justify-items:center">
-![Banner](./docs/imgs/banner.png)
-</div>
+
+<p align=center>
+    <img src="./docs/imgs/banner.png">
+</p>
 
 ## 1. Acerca del proyecto
 
