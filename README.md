@@ -1,6 +1,8 @@
 # Proyecto de biblioteca
 
-Aplicación web de gestión de libros 
+Aplicación web de gestión de libros. 
+<br>
+![Banner](./docs/imgs/banner.png)
 
 
 ## 1. Acerca del proyecto
