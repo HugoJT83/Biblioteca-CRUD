@@ -2,7 +2,6 @@
 
 Aplicación web de gestión de libros 
 
-
 ## 1. Acerca del proyecto
 
 La aplicación se ha desarrollado con **Laravel 12** a través de **plantillas Blade**, utilizando **PHP 8.5** y **Composer**; la aplicación se gestiona con **MySQL** y utiliza las siguientes dependencias para su funcionamiento:  
