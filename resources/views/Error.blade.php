@@ -1,7 +1,7 @@
 <x-layouts-basic.layout>
 
     <div
-    class="hero min-h-100 bg-linear-to-b from-sky to-gray-700"
+    class="hero min-h-120 bg-linear-to-b from-sky to-gray-700"
     >
     <div class="hero-overlay"></div>
     <div class="hero-content text-neutral-content ">

@@ -43,7 +43,5 @@ La aplicación cuenta con las siguientes características:
 2. Listar libros (tanto búsquedas concretas como generales con paginación)
 3. Actualizar libros existentes
 4. Eliminar libros
-5. Filtros de búsqueda (autor, género)
-6. Exportar listado a PDF
-
+5. Filtros de búsqueda (título)
 
