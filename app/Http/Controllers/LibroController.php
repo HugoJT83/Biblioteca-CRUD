@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Libro;
 use App\Http\Requests\StoreLibroRequest;
 use App\Http\Requests\UpdateLibroRequest;
+use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
 {
@@ -14,7 +15,7 @@ class LibroController extends Controller
     public function index()
     {
         //
-        $libros = auth()->user()->libros;
+        $libros = Auth::user()->libros()->paginate(6);
         $campos = $libros->first()?->getFillable()??[];
         
         return view('libros.index',compact('libros','campos'));
@@ -36,7 +37,7 @@ class LibroController extends Controller
         //
         $values = $request->input();
 
-        auth()->user()->libros()->create($values);
+        Auth::user()->libros()->create($values);
 
         return redirect()->route('libros.index');
     }
@@ -47,6 +48,7 @@ class LibroController extends Controller
     public function show(Libro $libro)
     {
         //
+        return view('libros.show',compact('libro'));
     }
 
     /**
@@ -71,5 +73,7 @@ class LibroController extends Controller
     public function destroy(Libro $libro)
     {
         //
+        $libro->delete();
+        return redirect()->route('libros.index')->with('success', 'Libro borrado correctamente.');
     }
 }
