@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Libro;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -34,6 +35,7 @@ class LibroFactory extends Factory
         $rand_bc = array_rand($book_covers);
 
         return [
+            'user_id' => User::factory(),
             'titulo'=> $book_names[$rand_bn],
             'autor' => $author_names[$rand_an],
             'anio' => $this->faker->year(),

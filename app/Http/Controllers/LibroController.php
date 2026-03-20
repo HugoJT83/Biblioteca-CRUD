@@ -14,7 +14,7 @@ class LibroController extends Controller
     public function index()
     {
         //
-        $libros = Libro::all();
+        $libros = auth()->user()->libros;
         $campos = $libros->first()?->getFillable()??[];
         
         return view('libros.index',compact('libros','campos'));
@@ -35,7 +35,10 @@ class LibroController extends Controller
     {
         //
         $values = $request->input();
-        Libro::create($values);
+
+        auth()->user()->libros()->create($values);
+
+        return redirect()->route('libros.index');
     }
 
     /**

@@ -18,7 +18,7 @@
                     <h3 class=" font-Jacquard text-2xl">{{$libro->autor}}</h3>
                     <h4 class="font-Poppins text-blue-800">{{$libro->anio}}</h4>
                     <div class="card-actions justify-end">
-                        <a href="" class="absolute bottom-0">
+                        <a href="{{-- {{route("libros.show")}} --}}" class="absolute bottom-0">
                             <button class="btn btn-primary bg-gray-800">Ver más</button>
                         </a>
                     
