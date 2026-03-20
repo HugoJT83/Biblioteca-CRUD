@@ -1,6 +1,6 @@
 <header class="bg-gray-800 w-full min-h-15 p-4 flex items-center justify-between">
     <div class="flex items-center">
-        <a href="{{route("index")}}" class="p-2">
+        <a href="{{route("main")}}" class="p-2">
             <img src="{{ asset('imgs/book_icon_pixel_alt.png') }}" class="w-15">
         </a>
         <h1 class="p-2 text-6xl text-white font-Jacquard ">Biblioteca Azulona</h1>

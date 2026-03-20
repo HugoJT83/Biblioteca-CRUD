@@ -5,17 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Libro;
 use App\Http\Requests\StoreLibroRequest;
 use App\Http\Requests\UpdateLibroRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $libros = Libro::all();
-        $fields = $libros->first()?->getFillable()??[];
+
+        $query = Auth::user()->libros();
+
+        if($request->filled('search')){
+            $titulo = $request->search;
+            $query->where('titulo', 'LIKE','%'.$titulo.'%');
+        };
+
+        $libros = $query->paginate(6)->withQueryString();
+
+        /* $libros = Auth::user()->libros()->paginate(6);
+        $campos = $libros->first()?->getFillable()??[];
+         */
+        
+        return view('libros.index',compact('libros'));
     }
 
     /**
@@ -24,6 +39,7 @@ class LibroController extends Controller
     public function create()
     {
         //
+        return view('libros.create');
     }
 
     /**
@@ -33,7 +49,10 @@ class LibroController extends Controller
     {
         //
         $values = $request->input();
-        Libro::create($values);
+
+        Auth::user()->libros()->create($values);
+
+        return redirect()->route('libros.index');
     }
 
     /**
@@ -42,6 +61,7 @@ class LibroController extends Controller
     public function show(Libro $libro)
     {
         //
+        return view('libros.show',compact('libro'));
     }
 
     /**
@@ -50,6 +70,7 @@ class LibroController extends Controller
     public function edit(Libro $libro)
     {
         //
+        return view('libros.edit',compact('libro'));
     }
 
     /**
@@ -58,6 +79,9 @@ class LibroController extends Controller
     public function update(UpdateLibroRequest $request, Libro $libro)
     {
         //
+        $libro->update($request->input());
+        return redirect()->route('libros.index')
+        ->with('success','Libro actualizado correctamente');
     }
 
     /**
@@ -66,5 +90,7 @@ class LibroController extends Controller
     public function destroy(Libro $libro)
     {
         //
+        $libro->delete();
+        return redirect()->route('libros.index')->with('success', 'Libro borrado correctamente.');
     }
 }
