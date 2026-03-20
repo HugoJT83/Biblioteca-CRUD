@@ -6,7 +6,7 @@
 
 <div class="min-h-150 bg-cover content-center modal-middle" style="background-image: url({{asset("imgs/".$fondo_aleatorio)}})" >
     
-    <div class="card lg:card-side min-w-100 max-w-300 min-h-120 m-10 bg-black/50">
+    <div class="card lg:card-side min-w-250 max-w-300 min-h-120 m-10 bg-black/50">
         <figure class="m-10 max-w-100 h-auto ">
             <img
             src="{{asset($libro->imagen)}}"
@@ -54,7 +54,7 @@
                 
 
                 {{--Editar--}}
-                <a href="">
+                <a href="{{route("libros.edit",$libro->id)}}">
                     <button type="submit" class="btn btn-primary shadow-none"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
                 </a>    
             </div>

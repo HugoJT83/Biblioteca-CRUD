@@ -39,6 +39,7 @@ class LibroController extends Controller
     public function create()
     {
         //
+        return view('libros.create');
     }
 
     /**
@@ -69,6 +70,7 @@ class LibroController extends Controller
     public function edit(Libro $libro)
     {
         //
+        return view('libros.edit',compact('libro'));
     }
 
     /**
@@ -77,6 +79,9 @@ class LibroController extends Controller
     public function update(UpdateLibroRequest $request, Libro $libro)
     {
         //
+        $libro->update($request->input());
+        return redirect()->route('libros.index')
+        ->with('success','Libro actualizado correctamente');
     }
 
     /**
