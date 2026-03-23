@@ -11,29 +11,65 @@
         <div class="bg-black/50 flex justify-center p-5">
 
             {{--Añadir libro (solo en la version por defecto de index)--}}
-            @if (!request('search'))    
+            @if (!request('search') && !request('genre') && !request('author'))    
                 <a href="{{route("libros.create")}}">
-                    <button class="btn rounded-2xl hover:cursor-pointer hover:text-sky font-Poppins"><i class="fa-solid fa-plus"></i>Añadir Libro</button>
+                    <button class="btn rounded-2xl p-6 hover:cursor-pointer hover:text-sky font-Poppins"><i class="fa-solid fa-plus"></i>Añadir Libro</button>
                 </a>
             @endif
 
             {{--Buscar libro--}}
-            <form action="{{route("libros.index")}}" method="GET" class="shadow-sm shadow-sky bg-sky text-white rounded-2xl ml-2">
-                <i class="fa-solid fa-magnifying-glass ml-3"></i>
-                <input 
-                    type="text"
-                    name="search"
-                    class="w-30 bg-transparent border-none"
-                    placeholder="Título..."
-                    value="{{request('search')}}"
-                >
-                <button type="submit" class="shadow-sm shadow-gray-600/50 bg-white text-black rounded-xl p-1 pl-2 pr-2 m-1 font-Poppins hover:cursor-pointer hover:text-sky">Buscar</button>
+            <form action="{{route("libros.index")}}" method="GET" class="flex">
+
+                {{--Buscar por titulo--}}
+                <div class="shadow-sm shadow-sky bg-sky text-white rounded-2xl ml-2 align-middle p-1">
+                    <i class="fa-solid fa-magnifying-glass ml-3"></i>
+                    <input 
+                        type="text"
+                        name="search"
+                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white"
+                        placeholder="Título..."
+                        value="{{request('search')}}"
+                    >
+                </div>
+
+                {{--Buscar por género--}}
+                <div class="shadow-sm shadow-green-600 bg-green-600 text-white ml-2 rounded-2xl p-1">
+                    <i class="fa-solid fa-masks-theater ml-3"></i>
+                    <input 
+                        type="text"
+                        name="genre"
+                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white"
+                        placeholder="Género..."
+                        value="{{request('genre')}}"
+                    >
+
+                </div>
+
+                {{--Buscar por autor--}}
+                <div class="shadow-sm shadow-yellow-500 bg-yellow-500 text-white ml-2 rounded-2xl p-1">
+                    <i class="fa-solid fa-feather-pointed ml-3"></i>
+                    <input 
+                        type="text"
+                        name="author"
+                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white"
+                        placeholder="Autor..."
+                        value="{{request('author')}}"
+                    >
+
+                </div>
+
+                <button class="p-6 ml-2 btn rounded-2xl hover:cursor-pointer hover:text-sky font-Poppins">Buscar</button>
             </form>
 
+            {{--Exportar a CSV--}}
+            <a href="{{route("exportar-CSV")}}">
+                <button  class="p-6 ml-2 btn rounded-2xl hover:cursor-pointer hover:text-sky font-Poppins">Exportar a CSV</button>
+            </a>
+
             {{--Limpiar lista (solo cuando se busca libro)--}}
-            @if (request('search'))
+            @if (request('search') || request('genre') || request('author'))
                 <a href="{{route('libros.index')}}">
-                    <button class=" ml-2 btn rounded-2xl hover:cursor-pointer hover:text-sky font-Poppins">Limpiar</button>
+                    <button class="p-6 ml-2 btn rounded-2xl hover:cursor-pointer hover:text-sky font-Poppins">Limpiar</button>
                 </a>
             @endif
         </div>

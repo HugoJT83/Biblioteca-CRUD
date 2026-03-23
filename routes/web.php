@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
 Route::resource("libros", LibroController::class)
     ->middleware('auth');
 
+Route::get('exportar-csv',[LibroController::class, 'exportarCSV'])->name('exportar-CSV');
+
 Route::fallback(function(){
 
     $url = request()->url();
