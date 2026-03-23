@@ -26,7 +26,7 @@
                     <input 
                         type="text"
                         name="search"
-                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white"
+                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white/50"
                         placeholder="Título..."
                         value="{{request('search')}}"
                     >
@@ -38,7 +38,7 @@
                     <input 
                         type="text"
                         name="genre"
-                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white"
+                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white/50"
                         placeholder="Género..."
                         value="{{request('genre')}}"
                     >
@@ -51,7 +51,7 @@
                     <input 
                         type="text"
                         name="author"
-                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white"
+                        class="w-30 bg-transparent border-none focus:outline-none focus:border-none focus:ring-0 font-Poppins placeholder-white/50"
                         placeholder="Autor..."
                         value="{{request('author')}}"
                     >
